@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:5173")
 @Tag(name = "Demo API", description = "API endpoints for the demo application")
 public class ApiController {
 
