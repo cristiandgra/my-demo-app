@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Web Application - Backend</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+      }
+
+      .content {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin-bottom: 2rem;
+      }
+
+      .section {
+        margin-bottom: 2rem;
+      }
+
+      .section h2 {
+        color: #667eea;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 0.5rem;
+      }
+
+      .tech-stack {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .tech-card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1.5rem;
+        border-left: 4px solid #667eea;
+      }
+
+      .tech-card h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .tech-card ul {
+        list-style: none;
+      }
+
+      .tech-card li {
+        padding: 0.25rem 0;
+        color: #666;
+      }
+
+      .tech-card li:before {
+        content: '•';
+        color: #667eea;
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+
+      .urls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .url-card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.2s;
+      }
+
+      .url-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .url-card h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .url-card a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .url-card a:hover {
+        text-decoration: underline;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .feature {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .feature h4 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .status {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+
+      .status h3 {
+        color: #155724;
+        margin-bottom: 0.5rem;
+      }
+
+      .status p {
+        color: #155724;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🚀 Demo Web Application</h1>
+        <p>Full-Stack Application with React, TypeScript, Spring Boot & Docker</p>
+      </div>
+
+      <div class="content">
+        <div class="section">
+          <h2>🏗️ Technology Stack</h2>
+          <div class="tech-stack">
+            <div class="tech-card">
+              <h3>Frontend</h3>
+              <ul>
+                <li>React 19</li>
+                <li>TypeScript</li>
+                <li>Vite</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <h3>Backend</h3>
+              <ul>
+                <li>Java 17</li>
+                <li>Spring Boot 3.2</li>
+                <li>OpenAPI/Swagger</li>
+                <li>Bean Validation</li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <h3>Infrastructure</h3>
+              <ul>
+                <li>Docker</li>
+                <li>Docker Compose</li>
+                <li>Nginx</li>
+                <li>Multi-stage builds</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>🔗 Available URLs</h2>
+          <div class="urls">
+            <div class="url-card">
+              <h3>Frontend Application</h3>
+              <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+              <p>Main React application</p>
+            </div>
+            <div class="url-card">
+              <h3>API Documentation</h3>
+              <a href="/api/" target="_blank">/api/</a>
+              <p>API endpoints info</p>
+            </div>
+            <div class="url-card">
+              <h3>Swagger UI</h3>
+              <a href="/swagger-ui.html" target="_blank">/swagger-ui.html</a>
+              <p>Interactive API docs</p>
+            </div>
+            <div class="url-card">
+              <h3>Health Check</h3>
+              <a href="/api/health" target="_blank">/api/health</a>
+              <p>Service status</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>✨ Features</h2>
+          <div class="features">
+            <div class="feature">
+              <h4>RESTful API</h4>
+              <p>Proper HTTP status codes and error handling</p>
+            </div>
+            <div class="feature">
+              <h4>Input Validation</h4>
+              <p>Bean Validation with custom error messages</p>
+            </div>
+            <div class="feature">
+              <h4>Responsive Design</h4>
+              <p>Mobile-first approach with Tailwind CSS</p>
+            </div>
+            <div class="feature">
+              <h4>Containerization</h4>
+              <p>Docker with multi-stage builds</p>
+            </div>
+            <div class="feature">
+              <h4>SOLID Principles</h4>
+              <p>Clean architecture and separation of concerns</p>
+            </div>
+            <div class="feature">
+              <h4>Documentation</h4>
+              <p>OpenAPI/Swagger with interactive testing</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="status">
+          <h3>✅ Service Status</h3>
+          <p>Backend service is running successfully!</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

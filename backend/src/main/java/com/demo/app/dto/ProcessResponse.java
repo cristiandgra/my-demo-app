@@ -1,10 +1,27 @@
 package com.demo.app.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
 
+@Schema(description = "Response object for data processing")
 public class ProcessResponse {
+    
+    @Schema(
+        description = "Response message indicating success or error",
+        example = "Data processed successfully!"
+    )
     private String message;
+    
+    @Schema(
+        description = "The processed data",
+        example = "HELLO WORLD"
+    )
     private String data;
+    
+    @Schema(
+        description = "Timestamp when the processing occurred",
+        example = "2024-01-01T12:00:00"
+    )
     private String timestamp;
 
     public ProcessResponse() {}

@@ -5,7 +5,7 @@ A simple web application with React TypeScript frontend and Java Spring Boot bac
 ## 🏗️ Architecture
 
 - **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS
-- **Backend**: Java 17 + Spring Boot 3.2
+- **Backend**: Java 17 + Spring Boot 3.2 + OpenAPI/Swagger
 - **Containerization**: Docker + Docker Compose
 - **Package Manager**: pnpm
 
@@ -55,8 +55,11 @@ my-demo-app/
    ```
 
 3. **Access the application:**
-   - Frontend: <http://localhost:3000>
-   - Backend API: <http://localhost:8080/api/health>
+
+   - **Frontend**: <http://localhost:3000> (Main Application)
+   - **Backend Home**: <http://localhost:8080/> (Application Info)
+   - **API Documentation**: <http://localhost:8080/api/> (API Info)
+   - **Swagger UI**: <http://localhost:8080/swagger-ui.html> (Interactive API Docs)
 
 ### Local Development
 
@@ -106,6 +109,46 @@ my-demo-app/
 
 ## 🔧 API Endpoints
 
+### GET /
+
+Application information and available URLs.
+
+**Response:**
+
+```
+🚀 Demo Web Application
+
+Welcome to the Demo Web Application!
+
+This is a full-stack application built with:
+• Frontend: React 19 + TypeScript + Vite + Tailwind CSS
+• Backend: Java 17 + Spring Boot 3.2
+• Containerization: Docker + Docker Compose
+
+Available URLs:
+• Frontend Application: http://localhost:3000
+• API Documentation: http://localhost:8080/api/
+• Swagger UI: http://localhost:8080/swagger-ui.html
+• Health Check: http://localhost:8080/api/health
+```
+
+### GET /api/
+
+API documentation and available endpoints.
+
+**Response:**
+
+```
+🚀 Demo Backend API
+
+Available endpoints:
+- GET  /api/health     - Health check
+- POST /api/process    - Process data
+
+Frontend: http://localhost:3000
+Swagger UI: http://localhost:8080/swagger-ui.html
+```
+
 ### POST /api/process
 
 Process user input data.
@@ -137,6 +180,17 @@ Health check endpoint.
 ```
 Backend is running!
 ```
+
+### GET /swagger-ui.html
+
+Interactive API documentation with Swagger UI.
+
+**Features:**
+
+- Interactive API testing
+- Request/response examples
+- Schema documentation
+- Try-it-out functionality
 
 ## 🐳 Docker Commands
 
@@ -188,12 +242,30 @@ cd backend
 mvn test
 ```
 
+### API Testing
+
+```bash
+# Test health endpoint
+curl http://localhost:8080/api/health
+
+# Test data processing
+curl -X POST http://localhost:8080/api/process \
+  -H "Content-Type: application/json" \
+  -d '{"data":"hello world"}'
+
+# Test with invalid data
+curl -X POST http://localhost:8080/api/process \
+  -H "Content-Type: application/json" \
+  -d '{"data":""}'
+```
+
 ## 🔍 Code Quality
 
 - **TypeScript**: Strict type checking
 - **ESLint**: Code linting and formatting
 - **Maven**: Java code quality tools
 - **Docker**: Containerized development environment
+- **OpenAPI**: Comprehensive API documentation
 
 ## 🚨 Error Handling
 
@@ -210,6 +282,7 @@ mvn test
 - Validation with Bean Validation
 - Exception handling with @ControllerAdvice
 - Graceful error responses
+- OpenAPI documentation for all error cases
 
 ## 📊 Performance Considerations
 
@@ -231,3 +304,27 @@ mvn test
 - Docker health checks
 - Application logging
 - Error tracking
+- OpenAPI documentation for monitoring
+
+## 🎯 Features for Interview
+
+### Professional Documentation
+
+- **Swagger UI**: Interactive API documentation
+- **OpenAPI**: Standard API specification
+- **Comprehensive README**: Clear setup instructions
+- **Code Comments**: Well-documented code
+
+### Modern Development Practices
+
+- **Type Safety**: TypeScript and Bean Validation
+- **API Design**: RESTful principles with proper status codes
+- **Error Handling**: Comprehensive error management
+- **Testing**: Ready for unit and integration tests
+
+### Production Ready
+
+- **Containerization**: Docker with multi-stage builds
+- **Health Checks**: Application and container monitoring
+- **Logging**: Structured logging for debugging
+- **Security**: Input validation and CORS configuration

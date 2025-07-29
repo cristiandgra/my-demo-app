@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Documentation - Demo Web Application</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+      }
+
+      .content {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin-bottom: 2rem;
+      }
+
+      .section {
+        margin-bottom: 2rem;
+      }
+
+      .section h2 {
+        color: #667eea;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 0.5rem;
+      }
+
+      .endpoints {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .endpoint {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1.5rem;
+        border-left: 4px solid #667eea;
+      }
+
+      .endpoint-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .method {
+        background: #667eea;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+
+      .method.get {
+        background: #28a745;
+      }
+      .method.post {
+        background: #007bff;
+      }
+      .method.put {
+        background: #ffc107;
+        color: #333;
+      }
+      .method.delete {
+        background: #dc3545;
+      }
+
+      .path {
+        font-family: 'Courier New', monospace;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      .endpoint h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .endpoint p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .detail-card {
+        background: white;
+        border-radius: 6px;
+        padding: 1rem;
+        border: 1px solid #e9ecef;
+      }
+
+      .detail-card h4 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .detail-card pre {
+        background: #f8f9fa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        overflow-x: auto;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .link-card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.2s;
+      }
+
+      .link-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .link-card h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .link-card a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .link-card a:hover {
+        text-decoration: underline;
+      }
+
+      .status {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+
+      .status h3 {
+        color: #155724;
+        margin-bottom: 0.5rem;
+      }
+
+      .status p {
+        color: #155724;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .details {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📚 API Documentation</h1>
+        <p>RESTful API endpoints for the Demo Web Application</p>
+      </div>
+
+      <div class="content">
+        <div class="section">
+          <h2>🔗 Available Endpoints</h2>
+          <div class="endpoints">
+            <div class="endpoint">
+              <div class="endpoint-header">
+                <span class="method get">GET</span>
+                <span class="path">/api/health</span>
+              </div>
+              <h3>Health Check</h3>
+              <p>Check if the backend service is running</p>
+              <div class="details">
+                <div class="detail-card">
+                  <h4>Response</h4>
+                  <pre>Backend is running!</pre>
+                </div>
+                <div class="detail-card">
+                  <h4>Status Code</h4>
+                  <pre>200 OK</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="endpoint">
+              <div class="endpoint-header">
+                <span class="method post">POST</span>
+                <span class="path">/api/process</span>
+              </div>
+              <h3>Process Data</h3>
+              <p>Process user input data and return processed result</p>
+              <div class="details">
+                <div class="detail-card">
+                  <h4>Request Body</h4>
+                  <pre>
+{
+  "data": "hello world"
+}</pre
+                  >
+                </div>
+                <div class="detail-card">
+                  <h4>Response</h4>
+                  <pre>
+{
+  "message": "Data processed successfully!",
+  "data": "HELLO WORLD",
+  "timestamp": "2024-01-01T12:00:00"
+}</pre
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>🔗 Quick Links</h2>
+          <div class="links">
+            <div class="link-card">
+              <h3>Frontend Application</h3>
+              <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+              <p>Main React application</p>
+            </div>
+            <div class="link-card">
+              <h3>Swagger UI</h3>
+              <a href="/swagger-ui.html" target="_blank">/swagger-ui.html</a>
+              <p>Interactive API documentation</p>
+            </div>
+            <div class="link-card">
+              <h3>Backend Home</h3>
+              <a href="/" target="_blank">/</a>
+              <p>Application information</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="status">
+          <h3>✅ API Status</h3>
+          <p>All endpoints are available and documented</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

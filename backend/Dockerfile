@@ -1,20 +1,20 @@
 # Build stage
-FROM maven:3.9.5-openjdk-17 AS builder
+FROM maven:3.9 AS builder
 
 WORKDIR /app
 
-# Copy pom.xml and download dependencies
+# Copy only pom.xml first to leverage Docker cache
 COPY pom.xml .
-RUN mvn dependency:go-offline
+RUN mvn dependency:go-offline -B
 
 # Copy source code
 COPY src ./src
 
 # Build the application
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -B
 
 # Production stage
-FROM openjdk:17-jre-alpine
+FROM openjdk:17-slim
 
 WORKDIR /app
 
